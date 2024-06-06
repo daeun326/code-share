@@ -7,18 +7,26 @@ void drawScreen() {
     drawMap(mapState);
 
     // 먹이 그리기
+    attron(COLOR_PAIR(2)); 
     mvaddch(foodY, foodX, '@');
+    attroff(COLOR_PAIR(2)); 
 
     //독 그리기
+    attron(COLOR_PAIR(3)); 
     mvaddch(poisonY, poisonX, '%');
+    attroff(COLOR_PAIR(3)); 
 
     // 더블 그리기
+    attron(COLOR_PAIR(4)); 
     mvaddch(doubleY, doubleX, '&');
+    attroff(COLOR_PAIR(4)); 
 
     // 스네이크 그리기
+    attron(COLOR_PAIR(1)); // 색상 쌍 1 사용
     for (int i = 0; i < snakeLength; ++i) {
         mvaddch(snakeY[i], snakeX[i], 'O');
     }
+    attroff(COLOR_PAIR(1)); 
 
     // 게이트 그리기
     mvaddch(portal1Y, portal1X, ' ');
